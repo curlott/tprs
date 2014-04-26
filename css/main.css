@@ -339,75 +339,23 @@ table tr:nth-child(even) {
   display: inline;
 }
 /* line 242, ../sass/main.scss */
-.page article.lp-presenter {
+.page article.track-list {
   width: 100%;
   float: left;
   margin-right: 1.69492%;
   display: inline;
-}
-@media (min-width: 49em) {
-  /* line 242, ../sass/main.scss */
-  .page article.lp-presenter {
-    width: 49.15254%;
-    float: left;
-    margin-right: 1.69492%;
-  }
-}
-/* line 250, ../sass/main.scss */
-.page article.blog-first {
-  width: 100%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
-}
-/* line 253, ../sass/main.scss */
-.page article.feature {
-  width: 100%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
-}
-/* line 256, ../sass/main.scss */
-.page article.blog-posts {
-  width: 100%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
-}
-@media (min-width: 49em) {
-  /* line 256, ../sass/main.scss */
-  .page article.blog-posts {
-    width: 74.57627%;
-    float: left;
-    margin-right: 1.69492%;
-  }
-}
-/* line 260, ../sass/main.scss */
-.page article.shop {
-  width: 100%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
-}
-@media (min-width: 49em) {
-  /* line 260, ../sass/main.scss */
-  .page article.shop {
-    width: 23.72881%;
-    float: right;
-    margin-right: 0;
-  }
 }
 
-/* line 266, ../sass/main.scss */
+/* line 247, ../sass/main.scss */
 .page {
   position: relative;
 }
-/* line 268, ../sass/main.scss */
+/* line 249, ../sass/main.scss */
 .page > * {
   margin-bottom: 1em;
 }
 
-/* line 273, ../sass/main.scss */
+/* line 254, ../sass/main.scss */
 .card {
   background-color: ghostwhite;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
@@ -418,23 +366,23 @@ table tr:nth-child(even) {
   /* Standard */
   overflow: hidden;
 }
-/* line 280, ../sass/main.scss */
+/* line 261, ../sass/main.scss */
 .card .card-head {
   background-color: black;
   width: 100%;
   height: 100px;
 }
-/* line 284, ../sass/main.scss */
+/* line 265, ../sass/main.scss */
 .card .card-head h2 {
   color: ghostwhite;
   display: none;
 }
 
-/* line 291, ../sass/main.scss */
+/* line 272, ../sass/main.scss */
 header {
   padding-bottom: 20px;
 }
-/* line 293, ../sass/main.scss */
+/* line 274, ../sass/main.scss */
 header > img {
   display: block;
   width: 100%;
@@ -444,23 +392,23 @@ header > img {
   margin-bottom: -4%;
 }
 
-/* line 304, ../sass/main.scss */
+/* line 285, ../sass/main.scss */
 article.feature iframe {
   margin-bottom: -8px;
 }
 
-/* line 313, ../sass/main.scss */
+/* line 294, ../sass/main.scss */
 article.tour-dates {
   font-size: 0.8em;
   line-height: 1.8em;
 }
-/* line 321, ../sass/main.scss */
+/* line 302, ../sass/main.scss */
 article.tour-dates .gig-city {
   color: black;
 }
 
 @media all and (min-width: 2000px) {
-  /* line 341, ../sass/main.scss */
+  /* line 322, ../sass/main.scss */
   body {
     -webkit-background-size: cover;
     -moz-background-size: cover;

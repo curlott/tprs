@@ -239,27 +239,8 @@ table {
   footer {
     @include span-columns(12,12);
   }
-  article.lp-presenter {
-
+  article.track-list {
     @include span-columns(12, 12);
-
-    @include at-breakpoint($break) { 
-      @include span-columns(6, 12); 
-    }
-  }
-  article.blog-first {
-    @include span-columns(12, 12);
-  }
-  article.feature {
-    @include span-columns(12, 12);
-  }
-  article.blog-posts {
-    @include span-columns(12, 12);
-    @include at-breakpoint($break) { @include span-columns(9, 12); }
-  }
-  article.shop {
-    @include span-columns(12, 12);
-    @include at-breakpoint($break) { @include span-columns(3 omega, 12); }
   }
 }
 
