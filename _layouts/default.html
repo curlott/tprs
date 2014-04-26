@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<title>{{ page.title }}</title>
+			<meta name="viewport" content="width=device-width">
+
+            <!-- Google Web Fonts -->
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+			<!-- syntax highlighting CSS -->
+			<link rel="stylesheet" href="/css/syntax.css">
+
+			<!-- Custom CSS -->
+			<link rel="stylesheet" href="/css/main.css">
+
+		</head>
+		<body>
+			<section class="page">
+				<article class="card tour-dates">
+                    <table >
+                    
+                    
+
+                    {% assign tracks = site.data.tracks | sort: 'artist' %}
+                    {% for track in tracks %}
+                        <tr>
+                            <td >
+                                <span>{{ track.show }}</span>
+                            </td>
+                            <td >
+                                <span class="gig-city">{{ track.track }}</span>
+                            </td>
+                            <td >
+                                <span class="gig-venue">{{ track.artist | mardonify }}</span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+
+                    
+				</article>
+
+				
+
+
+				
+			</section>
+            <footer>
+            </footer>
+            <script TYPE="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+            <script type="text/javascript">
+
+            </script>
+		</body>
+</html>

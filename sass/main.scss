@@ -1,0 +1,357 @@
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+@import "compass/reset";
+@import "susy";
+
+// susy settings
+
+$total-columns  : 12;
+$column-width   : 4em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+$break: 10;
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+
+}
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+
+body {
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: #d5d4da;
+  color: slategrey;
+  font-family: 'Inconsolata', 'Courier New', monospaced;
+  font-size: 16px;
+  line-height: 1.6em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%; }
+
+h1 { margin-bottom: 1em; }
+p { margin: 1em 0.5em; }
+
+a         { color: #00a; }
+a:hover   { color: #000; }
+a:visited { color: #a0a; }
+
+table {
+    width: 100%;
+  tr {
+  }
+  td {
+    width: auto;
+    padding: 0 0.2em;
+    vertical-align: baseline;
+  }
+  tr:nth-child(even) {
+
+    background: gainsboro;
+  }
+}
+
+
+/*****************************************************************************/
+/*
+/* Navigation
+/*
+/*****************************************************************************/
+
+// Smaller menu when on small screen
+// All padding and margin are in em, so they will scale as well
+@media (min-width : 900px) {
+  .menu {
+    // font-size: 1.2em;
+  }
+}
+
+.menu {
+  background-color: rgba(black, 0.3);
+  line-height: 1em;
+
+
+  ul {
+    transition: max-height .25s linear;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+  li {
+    // visibility transition is on li because multiple transition selectors is not well supported
+    transition: visibility .25s linear;
+    display: inline-block;
+    // border: 1px solid;
+    padding: .45em 1.1em;
+    margin: 0 .3em;
+
+    a {
+      color: White;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 1.8em;
+      &:active, &:hover {
+        color: black;
+      }
+    }
+
+  }
+}
+
+@media (max-width : 650px) {
+  .menu {
+    right: 0.5em!important;
+    background-color: gainsboro;
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2); /* WebKit */
+    -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2); /* Firefox */
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2); /* Standard */
+    border-radius: 0 0 10px 10px;
+    ul {
+      max-height: 0;
+      overflow: hidden;
+      margin: 0 3.5em 0 1em;
+      text-align: left;
+    }
+
+    li {
+      visibility: hidden;
+      display: block;
+      padding: 0.5em 0.6em;
+      border: none;
+    }
+
+    .navbar-handle {
+      display: block;
+    }
+
+  }
+
+  #navbar-checkbox:checked + .menu {
+    ul {
+      max-height: 300px;
+    }
+    
+    li {
+      visibility: visible;
+    }
+    .navbar-handle {
+      &, &:after, &:before {
+        border-color: #aaa;
+      }
+    }
+  }
+  .navbar-checkbox-container {
+    display: block!important;
+  }
+}
+
+.navbar-checkbox {
+    display: none;
+}
+.navbar-checkbox-container {
+  display: none;
+  top: 0;
+  right: 0.5em;
+  position: fixed;
+  z-index: 9998;
+  background-color: gainsboro;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4); /* WebKit */
+  -moz-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4); /* Firefox */
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4); /* Standard */
+  border-radius: 0 0 10px 10px;
+  width: 3.5em;
+  height: 2.9em;
+}
+.navbar-handle {
+    $height: 45px; // just a reference to compute em values on the fly
+    display: none;
+    cursor: pointer;
+    position: relative;
+    font-size: $height;
+    padding: .5em 0;
+    height: 0;
+    width: 1em * 75px / $height;
+    border-top: (1em * 6px / $height) solid;
+
+
+    &:before, &:after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        content: ' ';
+        border-top: (1em * 6px / $height) solid;
+    }
+
+    &:before {
+        top: 1em * 17px / $height;
+    }
+
+    &:after {
+        top: 1em * 40px / $height;
+    }
+}
+
+
+
+///////////
+
+.menu {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  
+  .navbar-handle {
+    position: absolute;
+    font-size: 1.2em;
+    top: 0.7em;
+    right: 0.65em;
+    z-index: 10;    
+  }
+}
+
+// .embed-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; max-width: 100%; height: auto; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+/*****************************************************************************/
+/*
+/* Home
+/*
+/*****************************************************************************/
+
+// Container
+
+.page {
+  @include container($total-columns, $total-columns);
+  header {
+    @include span-columns(12,12);
+  }
+  footer {
+    @include span-columns(12,12);
+  }
+  article.lp-presenter {
+
+    @include span-columns(12, 12);
+
+    @include at-breakpoint($break) { 
+      @include span-columns(6, 12); 
+    }
+  }
+  article.tour-dates {
+    @include span-columns(12, 12);
+    @include at-breakpoint($break) { 
+      @include span-columns(6 omega,12); 
+    }
+  }
+  article.blog-first {
+    @include span-columns(12, 12);
+  }
+  article.feature {
+    @include span-columns(12, 12);
+  }
+  article.blog-posts {
+    @include span-columns(12, 12);
+    @include at-breakpoint($break) { @include span-columns(9, 12); }
+  }
+  article.shop {
+    @include span-columns(12, 12);
+    @include at-breakpoint($break) { @include span-columns(3 omega, 12); }
+  }
+}
+
+.page {
+  position: relative;
+  > * {
+    margin-bottom: 1em;
+  }
+}
+
+.card {
+  background-color: ghostwhite;
+  // border-radius: 4px 4px 0 0;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2); /* WebKit */
+  -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2); /* Firefox */
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2); /* Standard */
+  overflow: hidden;
+  .card-head {
+    background-color: black;
+    width: 100%;
+    height: 100px;
+    h2 {
+      color: ghostwhite;
+      display: none;
+    }
+  }
+}
+
+header {
+  padding-bottom: 20px;
+  > img {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    margin: 20px auto;
+    margin-bottom: -4%;
+
+  }
+}
+article.feature {
+  iframe {
+    margin-bottom: -8px;
+  }
+}
+
+article.lp-presenter {
+  iframe {
+  }
+}
+article.tour-dates {
+  // background-color: black;
+  // color: slategrey;
+  font-size: 0.8em;
+  line-height: 1.8em;
+  .card-head {
+    // background-image: url("/images/card-head-tour.png");
+  }
+  .gig-city {
+    color: black;
+  }
+}
+
+article.blog-first {
+  .card-head {
+    // background-image: url("/images/card-head-blog.png");
+  }
+}
+
+article.blog-posts {
+}
+
+// Layout
+@media all and (min-width: 600px) {
+  body {
+  }
+}
+@media all and (min-width: 2000px) {
+  body {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+
+
+  
