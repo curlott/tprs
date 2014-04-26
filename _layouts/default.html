@@ -18,8 +18,9 @@
 		</head>
 		<body>
 			<section class="page">
+                <input id="search" type="text" style="width:60%; height:36px; margin: 20px;">
 				<article class="card tour-dates">
-                    <table >
+                    <table id="trackTable">
                     
                     
 
@@ -51,7 +52,48 @@
             </footer>
             <script TYPE="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
             <script type="text/javascript">
+                $(document).ready(function(){
+                    var tracksJq = $('#trackTable tr');
 
+                    var tracks = new Array();
+                    var trackList = new Array();
+
+                    var id = 0;
+                    tracksJq.each(function(){
+                        $(this).data('id', id);
+                        trackList.push($(this).data('string').toLowerCase());
+                        tracks.push($(this));
+                        ++id;
+                    });
+                    trackCount = id;
+
+                    var updateInterval;
+                    function update() {
+                        clearInterval(updateInterval);
+                        updateInterval = setInterval(function() {
+                            var searchValue = $('#search').val().toLowerCase();
+
+                            for(i = 0; i < trackCount; ++i) {
+                                n = trackList[i].search(searchValue);
+                                console.log(n);
+
+                                if(n==-1) {
+                                    tracks[i].hide();
+                                }
+                                else {
+                                    tracks[i].show();
+                                }
+                            }
+
+                            clearInterval(updateInterval);
+                        }, 100);                
+                    }
+                    update();
+
+
+                    // $('#form').find('textarea').change(update);
+                    $('#search').on('change keyup copy paste cut delete', update);
+                });
             </script>
 		</body>
 </html>
