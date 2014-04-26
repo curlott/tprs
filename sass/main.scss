@@ -247,12 +247,6 @@ table {
       @include span-columns(6, 12); 
     }
   }
-  article.tour-dates {
-    @include span-columns(12, 12);
-    @include at-breakpoint($break) { 
-      @include span-columns(6 omega,12); 
-    }
-  }
   article.blog-first {
     @include span-columns(12, 12);
   }
