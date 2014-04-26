@@ -25,7 +25,7 @@
 
                     {% assign tracks = site.data.tracks | sort: 'artist' %}
                     {% for track in tracks %}
-                        <tr>
+                        <tr data-string="{{ track.artist }} {{ track.track }}">
                             <td >
                                 <span>{{ track.show }}</span>
                             </td>
